@@ -1,0 +1,220 @@
+<style>
+    body {
+      margin: 0 auto;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+    
+    .container {
+      border: 2px solid #dedede;
+      background-color: #f1f1f1;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    
+    .darker {
+      border-color: #ccc;
+      background-color: #ddd;
+    }
+    
+    .container::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    
+    .container img {
+      float: left;
+      max-width: 60px;
+      width: 100%;
+      margin-right: 20px;
+      border-radius: 50%;
+    }
+    
+    .container img.right {
+      float: right;
+      margin-left: 20px;
+      margin-right:0;
+    }
+    
+    .time-right {
+      float: right;
+      color: #aaa;
+    }
+
+    .chat-response-right {
+      float: right;
+      color: blue;
+    }
+    
+    .time-left {
+      float: left;
+      color: #999;
+    }
+    </style>
+
+
+
+<ng-app="app" ng-controller="EmpManage as EmpM">
+    
+
+
+
+
+ 
+    
+    
+    
+    
+    <div class=" col-md-12 container">
+      <div id="showresult"></div>
+
+      <div class="chat-response-right">{{EmpM.matchResultSpecific.text}}</div>
+      <div class="time-right" ng-click="EmpM.startButton(event)">
+          <img alt="Start" id="start_img" src="https://speechlogger.appspot.com/images/micoff2.png"></div>
+    </div>
+    
+    
+    
+      
+    
+       
+    
+
+
+
+
+
+    <!-- <div ng-form="myFormValidation">
+        <accordion close-others="oneAtATime">
+            
+             <h3><center>Employee Mnagement</center></h3>       
+            <accordion-group heading="Personal Details">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="exInputfname">First Name </label>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="firstName" ng-required="true" ng-model="EmpM.info.firstName" placeholder="First Name ">
+                        <span style="color:red" ng-show="myFormValidation.firstName.$dirty && myFormValidation.firstName.$invalid">First name is required.</span>
+                    </div>
+                    <div class="col-md-6"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="exInputlname">Last Name </label>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="lastName" ng-required="true" ng-model="EmpM.info.lastName" placeholder="Last Name ">
+                        <span style="color:red" ng-show="myFormValidation.lastName.$dirty && myFormValidation.lastName.$invalid">Last name is Required.</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="exInputage">Age </label>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="number" class="form-control" name="age" ng-required="true" ng-maxlength="2" ng-model="EmpM.info.age" placeholder="Enter your Age">
+                        <span style="color:red" ng-show="myFormValidation.age.$dirty && myFormValidation.age.$invalid">Age can not be blank</span>
+                        <span style="color:red" ng-show="myFormValidation.age.$error.maxlength">Age can not be more than 99 Years </span>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <p class="input-group">
+                            <label for="exInputDate">Select Date </label>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" datepicker-popup="{{format}}" show-button-bar="true"
+                         ng-model="dt" is-open="EmpM.display.opened" datepicker-options="dateOptions"
+                            ng-required="true" close-text="Close" /></div> -->
+                    <!--<span class="input-group-btn">-->
+                    <!-- <button type="button" class="btn btn-default" ng-click="EmpM.open($event)"> <i class="glyphicon glyphicon-calendar">
+                    </i></button>
+                    </p>
+
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="exphone">Phone Number</label>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="number" class="form-control" name="phone" ng-pattern="PhoneNumberP" ng-model="EmpM.info.phone" placeholder="Phone Number">
+                        <span style="color:red" ng-show="myFormValidation.phone.$error.pattern">Enter Valid phone </span>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+                        <button type="submit" class="btn btn-default" ng-click="EmpM.showinfo()">Save</button>
+                        <button type="submit" class="btn btn-default" ng-click="EmpM.reset()">Reset</button>
+                    </div>
+                </div>
+            </accordion-group>
+
+            <accordion-group heading="Medical Details">
+                <p>The body of the accordion group grows to fit the contents</p>
+               
+            </accordion-group>
+
+
+        </accordion>
+        </form> -->
+
+        <!--<button class='btn btn-default' ng-click="addAlert()">Add Alert</button>-->
+
+
+        <!--adding Tabs here  -->
+        <!-- <h4>Select a Tab For More Details:</h4>
+
+        <tabset justified="true">
+            <tab heading="Personal Information">
+                <div>
+                    <table class="table">
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Age</th>
+                            <th>Phone number</th>
+                            <th>Action</th>
+                        </tr>
+
+                        <tr>
+                            
+                            <tr ng-repeat="item in EmpM.dataArr">
+                                <td>{{ item.firstName }}</td>
+                                <td>{{ item.lastName}}</td>
+                                <td>{{ item.age }}</td>
+                                <td>{{item.phone}}</td>
+                                <td><button type="button" class="btn btn-default" ng-click="EmpM.deleteinfo($index)">delete</button></td>
+                            </tr>
+                    </table>
+                </div>
+            </tab>
+            <tab heading="Medical Information">Medical Information</tab>
+        </tabset>
+    </div> -->
+
+
+
+    
+
