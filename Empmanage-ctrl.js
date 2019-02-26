@@ -80,7 +80,7 @@
             // xhttp.send();
             // document.getElementById("showresult").innerHTML = xhttp.responseText;
            
-            $http.get('https://raw.githubusercontent.com/IBM/watson-banking-chatbot/master/data/conversation/workspaces/banking.json').then(function(response){
+            $http.get('https://raw.githubusercontent.com/xsandips/chatbot_bank/master/banking.json').then(function(response){
                console.log(response.data.intents);
 
                vm.resultsfromBankJson = response.data.intents;
@@ -114,7 +114,13 @@
               
 
                if(!vm.matchResultSpecific){
-                vm.matchResultSpecific =vm.resultsfromBankJson[0].intent.examples[0];
+                if(vm.matchResult){
+                    vm.matchResultSpecific = vm.matchResult.examples[0];
+                }else{
+                    vm.resultsfromBankJson[0].examples[0].text = "try again"
+                    vm.matchResultSpecific =vm.resultsfromBankJson[0].examples[0];
+                }   
+                
             }
 
                console.log(vm.matchResult);
